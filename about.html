@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostaPlux</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="top-container">
+            <h1>About Us</h1> <br>
+        </div>
+        <p class="tagline">Learn about our mission, vision, and the story behind PostaPlux.</p>
+        
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+        
+        <nav class="side-menu" id="sideMenu">
+            <div class="menu-header">
+                <h3>Menu</h3>
+                <button class="close-menu" id="closeMenu">&times;</button>
+            </div>
+            <div class="menu-items">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            </div>
+        </nav>
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    <div class="container" style="max-width: 800px;">
+        <div class="content-page">
+            
+            
+            <div class="about-section">
+                <h3>About Us</h3>
+                <p>PostaPlux is a simple and smart web app designed to help you create clean, realistic, and customizable social media–style post screenshots. Whether you're making mockups, presentations, visual content, or creative designs, PostaPlux makes it easy to turn plain text into polished, professional-looking post visuals.
+
+We built PostaPlux to remove the stress of design. No editing skills, no complicated tools—just type, customize, and download. Our goal is to give everyone an easy way to create social-media-style screenshots that look clean, modern, and real.
+
+PostaPlux continues to evolve as we add more styles, better customization, and smoother user experience. We're focused on simplicity, speed, and helping you bring your ideas to life effortlessly.</p>
+                
+                <h3>Our Story</h3>
+                <p>PostaPlux started as a simple idea: to make it easy for anyone to create clean, realistic social media–style post screenshots without needing design skills. What began as a small personal project quickly grew into a tool used by creators, students, and professionals who needed fast, neat visual content. Today, PostaPlux continues to evolve with new features and a smoother experience.
+                
+                <h3>Our Mission</h3>
+                <p>Our mission is to simplify content creation by giving users a fast, reliable, and accessible tool for generating realistic social-media-style screenshots. We aim to remove the stress of design and provide a clean, modern platform that helps people bring their ideas to life effortlessly.</p>
+                
+                <h3>The Team</h3>
+                <p>PostaPlux is built and maintained by a small, focused team passionate about simple design, clean user experience, and practical tools. We’re dedicated to improving the platform based on user needs and continuously delivering a smooth, easy-to-use creation experience.
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="about.html" class="footer-link">About Us</a>
+            
+            </div>
+            <div class="footer-section">
+                <a href="contact.html" class="footer-link">Contact Us</a>
+            
+            </div>
+            <div class="footer-section">
+                <a href="faq.html" class="footer-link">FAQ</a>
+            
+            </div>
+            <div class="footer-section">
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+        
+            </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburgerMenu.addEventListener('click', () => {
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

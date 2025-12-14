@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>PostaPlux - Custom social media style post screenshot generator</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231a6dff' rx='15' width='100' height='100'/><text x='50' y='70' font-size='60' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- TOP BLUE CONTAINER -->
+    <header class="top-container">
+            <h1>PostaPlux</h1>
+        </div><br>
+        <p class="tagline">PostaPlux is a web app that creates clean and realistic social-media-style post screenshots from custom text and images, no design skills needed.</p>
+        
+        <!-- HAMBURGER MENU ICON -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+        
+        <!-- SIDE MENU -->
+        <nav class="side-menu" id="sideMenu">
+            <div class="menu-header">
+                <h3>Menu</h3>
+                <button class="close-menu" id="closeMenu">&times;</button>
+            </div>
+            <div class="menu-items">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+            </div>
+        </nav>
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    <div class="container">
+        <!-- LEFT PANEL: CONTROLS -->
+        <div class="controls-panel">
+            <!-- TEXT & CONTENT SECTION -->
+            <section class="control-group">
+                <h3><i class="fas fa-edit"></i> Text & Content</h3>
+                
+                <!-- Profile Picture Upload -->
+                <div class="profile-upload-section">
+                    <label>Profile Picture:</label>
+                    <div class="profile-upload-container">
+                        <div class="profile-preview" id="profilePreview">
+                            <i class="fas fa-user default-avatar"></i>
+                        </div>
+                        <div class="upload-controls">
+                            <label class="upload-label">
+                                <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+                                <div class="btn-upload" id="uploadBtn">
+                                    <i class="fas fa-upload"></i> Upload Photo
+                                </div>
+                            </label>
+                            <button class="btn-remove" id="removeBtn" style="display: none;">
+                                <i class="fas fa-times"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <label>Author Name:</label>
+                <input type="text" id="authorName" placeholder="Cyril John">
+                
+                <label>Post Content:</label>
+                <textarea id="postContent" placeholder="Write your custom post here...">What's on your mind?</textarea>
+                
+                <label>
+                    <input type="checkbox" id="showTimestamp" checked> username or timestamp
+                </label>
+                <input type="text" id="customTimestamp" placeholder="Turn off or Leave blank for 'Just now'">
+                
+                <label>Font Size:</label>
+                <div class="font-size-controls">
+                    <button type="button" id="decreaseFont" class="font-btn"><i class="fas fa-minus"></i></button>
+                    <span id="fontSizeDisplay">16px</span>
+                    <button type="button" id="increaseFont" class="font-btn"><i class="fas fa-plus"></i></button>
+                </div>
+                
+                <label>
+                    <input type="checkbox" id="boldText"> Bold Text
+                </label>
+            </section>
+
+
+            <!-- ACTION BUTTONS -->
+            <div class="action-buttons">
+                <button id="generateBtn" class="btn-primary">
+                    <i class="fas fa-camera"></i> Generate Screenshot
+                </button>
+                <button id="resetBtn" class="btn-secondary">
+                    <i class="fas fa-redo"></i> Reset to Default
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: PREVIEW -->
+        <div class="preview-panel">
+            <h3><i class="fas fa-eye"></i> Live Preview</h3>
+            <div id="previewContainer" class="preview-container">
+                <div class="facebook-post">
+                    <div class="post-header">
+                        <div class="profile-pic" id="previewProfilePic">
+                            <i class="fas fa-user default-avatar"></i>
+                        </div>
+                        <div class="post-meta">
+                            <strong id="previewAuthor">Cyril John</strong>
+                            <span id="previewTime">Just now</span>
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        <div id="previewText">What's on your mind?</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DOWNLOAD AREA -->
+            <div class="download-area">
+                <h4><i class="fas fa-download"></i> Download Ready Screenshot</h4>
+                <div id="outputArea" class="output-placeholder">
+                    Your generated image will appear here
+                </div>
+                <button id="downloadBtn" class="btn-download" disabled>
+                    <i class="fas fa-file-download"></i> Download PNG
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="about.html" class="footer-link">About Us</a>
+            </div>
+            <div class="footer-section">
+                <a href="contact.html" class="footer-link">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <a href="faq.html" class="footer-link">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
